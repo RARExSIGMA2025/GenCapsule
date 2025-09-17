@@ -1,409 +1,170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>B.Pharma Hub — 1st Year Student Resource Centre</title>
-  <meta name="description" content="A centralised hub for B.Pharm 1st year students — notes, lab guides, study groups." />
-
-  <!-- Google font (optional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent-1: #0ea5a6;
-      --accent-2: #3b82f6;
-      --muted:#9aa4b2;
-      --glass: rgba(255,255,255,0.04);
-      --radius: 14px;
-      --maxw: 1100px;
-      --gap: 20px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background: linear-gradient(180deg,#071028 0%, #051022 60%), radial-gradient(600px 300px at 10% 10%, rgba(59,130,246,0.06), transparent 10%);
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:32px;
-    }
-    .container{max-width:var(--maxw);margin:0 auto;display:block;gap:var(--gap);}
-
-    /* Header */
-    header{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:16px;margin-bottom:28px;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;
-    }
-    .logo{
-      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-      display:flex;align-items:center;justify-content:center;font-weight:700;color:#021023;font-size:18px;box-shadow:0 6px 18px rgba(11,20,32,0.6);
-    }
-    .site-title{font-weight:700;font-size:18px}
-    nav{display:flex;align-items:center;gap:12px}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;font-weight:600}
-    nav a:hover{color:#fff;background:var(--glass)}
-    .cta{background:linear-gradient(90deg,var(--accent-2),var(--accent-1));padding:9px 14px;border-radius:12px;color:#021023;font-weight:700;text-decoration:none}
-
-    /* Mobile nav */
-    .mobile-toggle{display:none;background:transparent;border:0;color:var(--muted);font-weight:700;padding:8px}
-    @media (max-width:880px){
-      nav{display:none}
-      .mobile-toggle{display:inline-block}
-    }
-
-    /* Hero */
-    .hero{
-      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
-      padding:28px;border-radius:18px;box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-    }
-    .hero h1{margin:0;font-size:32px;line-height:1.05}
-    .hero p{margin-top:12px;color:var(--muted)}
-    .hero .actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700}
-    .btn-primary{background:linear-gradient(90deg,var(--accent-2),var(--accent-1));color:#021023}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:18px;border-radius:12px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.02), 0 6px 18px rgba(2,6,23,0.5)
-    }
-
-    /* Sections */
-    section{margin-bottom:24px}
-    h2{margin:0 0 12px 0;font-size:20px}
-    p.lead{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .mini-card{background:var(--card);padding:14px;border-radius:12px;min-height:92px}
-    .stat{font-weight:700;font-size:20px}
-
-    /* Subjects list */
-    .subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .subject-item{background:var(--card);padding:14px;border-radius:12px}
-
-    /* Practical steps */
-    .steps{display:flex;flex-direction:column;gap:12px}
-    .step{display:flex;gap:12px;align-items:flex-start}
-    .step .num{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021023}
-
-    /* Updates list */
-    .updates{display:flex;flex-direction:column;gap:8px}
-
-    /* Footer */
-    footer{margin-top:26px;color:var(--muted);font-size:13px;padding-top:14px;border-top:1px dashed rgba(255,255,255,0.03)}
-
-    /* Responsive tweaks */
-    @media (max-width:1100px){ .hero{grid-template-columns:1fr 320px} .grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:700px){ .hero{grid-template-columns:1fr} .subjects{grid-template-columns:1fr} .grid{grid-template-columns:1fr} header{flex-direction:column;align-items:flex-start;gap:12px} }
-  </style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Pharma Hub</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
 <body>
 
-  <div class="container">
-
     <header>
-      <div class="brand">
-        <div class="logo">BP</div>
-        <div>
-          <div class="site-title">B.Pharma Hub</div>
-          <div style="color:var(--muted);font-size:13px">Your 1st Year Pharmacy Student Resource Centre</div>
+        <nav>
+            <div class="logo">
+                <h1>B.Pharma Hub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#study-group">Join Study Group</a></li>
+                <li><a href="#resources">Browse Resources</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h2>Your 1st Year Pharmacy Student Resource Centre</h2>
+            <p>A comprehensive platform designed by students, for students.</p>
         </div>
-      </div>
-
-      <nav id="nav">
-        <a href="#about">About</a>
-        <a href="#resources">Resources</a>
-        <a href="#practicals">Practicals</a>
-        <a href="#careers">Careers</a>
-        <a href="#join">Join</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button class="mobile-toggle" id="mobileToggle">Menu</button>
-
-      <a class="cta" href="#join">Join Study Group</a>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <h1>Welcome to <span style="background:linear-gradient(90deg,var(--accent-2),var(--accent-1));-webkit-background-clip:text;color:transparent">B.Pharma Hub</span></h1>
-        <p class="lead">A comprehensive platform designed by students, for students. Access curated study materials, practical guides, and connect with your batch mates in our focused learning community.</p>
-
-        <div class="actions">
-          <a class="btn btn-primary" href="#resources">Browse Resources</a>
-          <a class="btn btn-ghost" href="#join">Join Study Group</a>
-        </div>
-
-        <div style="margin-top:18px;color:var(--muted);font-size:13px">
-          Built with ❤️ by a 1st Year B.Pharm student — centralising notes, lab guides and community help. 
-        </div>
-      </div>
-
-      <aside class="card">
-        <h3 style="margin-top:0">Essential study materials</h3>
-        <div style="color:var(--muted);font-size:14px">Lecture notes, previous year questions, reference books, quick revision cards — all curated for B.Pharm 1st year.</div>
-
-        <div style="display:flex;gap:8px;margin-top:12px">
-          <a class="btn btn-primary" href="#resources">View Library</a>
-          <a class="btn btn-ghost" href="#practicals">Practical Guides</a>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ABOUT -->
     <section id="about">
-      <div class="card">
-        <h2>About — 1st Year B.Pharm Student Journey</h2>
-        <p class="lead">Hello! I'm a passionate 1st year B.Pharm student creating this centralised hub to streamline our learning experience. From lab reports to exam prep, everything is organised here for the batch. </p>
-      </div>
+        <h2>About Me: 1st Year B.Pharma Student Journey</h2>
+        <p>Hello! I'm a passionate 1st year B.Pharma student navigating the exciting world of pharmaceutical sciences.</p>
+        <p>This website represents my journey of creating a centralised hub for our batch's academic needs.</p>
+        <p>My goal is to make pharmaceutical education more accessible and collaborative for our entire batch.</p>
+        <div class="goals">
+            <div class="goal-item">
+                <h3>Academic Excellence</h3>
+                <p>Maintaining high standards while helping fellow students succeed.</p>
+            </div>
+            <div class="goal-item">
+                <h3>Community Building</h3>
+                <p>Fostering collaboration and knowledge sharing among pharmacy students.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- RESOURCES -->
     <section id="resources">
-      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
-        <div style="flex:1;min-width:260px">
-          <h2>Essential Study Materials</h2>
-          <p class="lead">Comprehensive collection of verified resources matched to the curriculum: lecture notes, PYQs, reference books and quick revision cards. </p>
-
-          <div class="grid" style="margin-top:14px">
-            <div class="mini-card">
-              <div style="color:var(--muted);font-size:13px">Lecture Notes</div>
-              <div class="stat">Faculty-approved notes</div>
+        <h2>Essential Study Materials for B.Pharma 1st Year Students</h2>
+        <p>Comprehensive collection of verified resources, carefully curated to match our curriculum and examination patterns.</p>
+        <div class="resource-grid">
+            <div class="resource-item">
+                <h3>Lecture Notes</h3>
+                <p>Faculty-approved notes covering all major topics...</p>
             </div>
-            <div class="mini-card">
-              <div style="color:var(--muted);font-size:13px">Previous Year Questions</div>
-              <div class="stat">Solved & organised</div>
+            <div class="resource-item">
+                <h3>Previous Year Questions</h3>
+                <p>Extensive collection of PYQs from last 5 years...</p>
             </div>
-            <div class="mini-card">
-              <div style="color:var(--muted);font-size:13px">Reference Books</div>
-              <div class="stat">Remingtons & more</div>
+            <div class="resource-item">
+                <h3>Reference Books</h3>
+                <p>Digital copies and summaries of recommended textbooks...</p>
             </div>
-          </div>
+            <div class="resource-item">
+                <h3>Quick Revision Cards</h3>
+                <p>Concise flashcards for important formulas...</p>
+            </div>
         </div>
-
-        <div style="flex:0 0 340px">
-          <div class="card">
-            <h3 style="margin-top:0">Subject-wise Notes</h3>
-            <div class="subjects" style="margin-top:12px">
-              <div class="subject-item">
-                <strong>Pharmaceutical Chemistry</strong>
-                <div style="color:var(--muted);font-size:13px">Organic & inorganic fundamentals with mechanisms.</div>
-              </div>
-              <div class="subject-item">
-                <strong>Pharmacognosy</strong>
-                <div style="color:var(--muted);font-size:13px">Plant-based drug studies & illustrations.</div>
-              </div>
-              <div class="subject-item">
-                <strong>Pharmaceutics</strong>
-                <div style="color:var(--muted);font-size:13px">Dosage forms, manufacturing & QC.</div>
-              </div>
-              <div class="subject-item">
-                <strong>Pharmaceutical Analysis</strong>
-                <div style="color:var(--muted);font-size:13px">Instrumentation & calculations.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- PRACTICALS -->
-    <section id="practicals">
-      <h2>Practical Lab Guides & Experiments</h2>
-      <p class="lead">Complete practical manuals with step-by-step procedures, safety protocols, and report templates. </p>
-
-      <div class="card" style="margin-top:12px">
-        <div class="steps">
-          <div class="step">
-            <div class="num">01</div>
-            <div>
-              <strong>Pre-lab Preparation</strong>
-              <div style="color:var(--muted)">Study objectives, gather materials, review safety.</div>
+    <section id="subjects">
+        <h2>Subject-wise Notes and Resources</h2>
+        <div class="subject-grid">
+            <div class="subject-item">
+                <h3>Pharmaceutical Chemistry</h3>
+                <p>Organic and inorganic chemistry fundamentals, reaction mechanisms, and pharmaceutical applications...</p>
             </div>
-          </div>
-
-          <div class="step">
-            <div class="num">02</div>
-            <div>
-              <strong>Experiment Execution</strong>
-              <div style="color:var(--muted)">Follow procedures, technique demos & troubleshooting tips.</div>
+            <div class="subject-item">
+                <h3>Pharmacognosy</h3>
+                <p>Plant-based drug studies, identification techniques, and extraction methods...</p>
             </div>
-          </div>
-
-          <div class="step">
-            <div class="num">03</div>
-            <div>
-              <strong>Data Analysis</strong>
-              <div style="color:var(--muted)">Calculate results and compare with standards.</div>
+            <div class="subject-item">
+                <h3>Pharmaceutics</h3>
+                <p>Dosage form design, manufacturing processes, and quality control measures...</p>
             </div>
-          </div>
-
-          <div class="step">
-            <div class="num">04</div>
-            <div>
-              <strong>Report Writing</strong>
-              <div style="color:var(--muted)">Document findings in proper format and conclusions.</div>
+            <div class="subject-item">
+                <h3>Pharmaceutical Analysis</h3>
+                <p>Analytical techniques, instrumentation, and quantitative analysis methods...</p>
             </div>
-          </div>
-
-          <div style="margin-top:12px;color:var(--muted);font-size:13px">
-            Available resources: SOPs, equipment videos, sample worksheets, report templates. 
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- CAREERS -->
+    <section id="lab-guides">
+        <h2>Practical Lab Guides and Experiments</h2>
+        <p>Complete practical manuals with step-by-step procedures, safety protocols, and result analysis templates...</p>
+        <div class="steps-grid">
+            <div class="step-item">
+                <h4>1. Pre-lab Preparation</h4>
+                <p>Study objectives, gather materials, and review safety protocols...</p>
+            </div>
+            <div class="step-item">
+                <h4>2. Experiment Execution</h4>
+                <p>Follow detailed procedures with proper technique demonstrations...</p>
+            </div>
+            <div class="step-item">
+                <h4>3. Data Analysis</h4>
+                <p>Calculate results using provided formulas...</p>
+            </div>
+            <div class="step-item">
+                <h4>4. Report Writing</h4>
+                <p>Document findings in proper format with conclusions...</p>
+            </div>
+        </div>
+    </section>
+
     <section id="careers">
-      <div class="card">
         <h2>Career Opportunities in Pharmaceutical Sciences</h2>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px">
-          <div>
-            <strong>Research & Development</strong>
-            <div style="color:var(--muted)">Drug discovery & formulation roles.</div>
-          </div>
-          <div>
-            <strong>Regulatory Affairs</strong>
-            <div style="color:var(--muted)">Drug safety & compliance.</div>
-          </div>
-          <div>
-            <strong>Clinical Practice</strong>
-            <div style="color:var(--muted)">Hospital & community pharmacy.</div>
-          </div>
-          <div>
-            <strong>Academia & Teaching</strong>
-            <div style="color:var(--muted)">Lectures, research supervision & education.</div>
-          </div>
+        <div class="career-grid">
+            <div class="career-item">
+                <h3>Research & Development</h3>
+                <p>Drug discovery, formulation development, and clinical research roles...</p>
+            </div>
+            <div class="career-item">
+                <h3>Regulatory Affairs</h3>
+                <p>Ensuring drug safety and compliance with government regulations...</p>
+            </div>
+            <div class="career-item">
+                <h3>Clinical Practice</h3>
+                <p>Hospital pharmacy, community pharmacy, and clinical pharmacist roles...</p>
+            </div>
+            <div class="career-item">
+                <h3>Academia & Teaching</h3>
+                <p>Teaching positions in pharmacy colleges...</p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- JOIN -->
-    <section id="join">
-      <div class="card">
+    <section id="community">
         <h2>Join Our Telegram Study Group</h2>
-        <p class="lead">Active discussions, daily doubt clearing, exam updates, and resource sharing. Group guidelines and schedule are maintained in the group. </p>
-
-        <div style="display:flex;gap:12px;margin-top:12px">
-          <a class="btn btn-primary" href="https://t.me/BPharmaHub_Admin" target="_blank" rel="noopener">Join Telegram Group</a>
-          <button class="btn btn-ghost" id="copyLink">Copy Group Link</button>
+        <p>Connect with Fellow B.Pharma Students</p>
+        <div class="community-features">
+            <div class="feature-item">
+                <h3>Active Discussions</h3>
+                <p>Daily doubt clearing sessions and study material sharing...</p>
+            </div>
+            <div class="feature-item">
+                <h3>Exam Updates</h3>
+                <p>Real-time notifications about exam schedules and announcements.</p>
+            </div>
         </div>
-
-        <div style="margin-top:10px;color:var(--muted)">780+ active members and growing!</div>
-      </div>
-    </section>
-
-    <!-- UPDATES -->
-    <section id="updates">
-      <h2>Latest Updates & Announcements</h2>
-      <div class="card updates" style="margin-top:12px">
-        <div><strong>New Lab Manual Upload</strong> — Updated Pharmaceutical Analysis practical guides with enhanced safety protocols.</div>
-        <div><strong>Guest Lecture Series</strong> — Industry experts speaking this month.</div>
-        <div><strong>Study Group Formation</strong> — Subject-wise circles being formed.</div>
-        <div><strong>Resource Library Expansion</strong> — Added 50+ reference books & journals.</div>
-      </div>
-    </section>
-
-    <!-- TIPS -->
-    <section id="tips">
-      <h2>Study Tips & Exam Strategy</h2>
-      <div class="card" style="margin-top:12px">
-        <ol style="margin:0 0 0 18px;color:var(--muted)">
-          <li>Active learning: concept maps & practice problems.</li>
-          <li>Time management: schedule theory, practicals, revision.</li>
-          <li>Memory: mnemonics for drug names & structures.</li>
-          <li>Practice testing: solve PYQs & mock tests regularly.</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="card" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
-        <div style="flex:1;min-width:220px">
-          <h2>Contact & Future Plans</h2>
-          <p style="color:var(--muted);margin-top:6px">Email: <a href="mailto:pharma.hub.admin@gmail.com">pharma.hub.admin@gmail.com</a><br>Telegram: <a href="https://t.me/BPharmaHub_Admin" target="_blank" rel="noopener">@BPharmaHub_Admin</a></p>
+        <a href="https://t.me/+lidqMsEohHtiZGNh" class="join-button">Join Telegram Group</a>
+        <div class="group-guidelines">
+            <h3>Group Guidelines</h3>
+            <ul>
+                <li>Study materials sharing: 8 AM - 7 PM only</li>
+                <li>General discussions allowed after 8 PM</li>
+                <li>No spam or irrelevant forwards</li>
+                <li>Respectful communication always</li>
+                <li>Help fellow students whenever possible</li>
+            </ul>
         </div>
-
-        <div style="flex:0 0 280px">
-          <strong style="display:block">Upcoming Features</strong>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>Interactive quizzes</li>
-            <li>Video lectures</li>
-            <li>Lab booking system</li>
-            <li>Mobile app</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
     <footer>
-      Built with ❤️ by a B.Pharma student for the community. Contact for contributions or feedback. 
+        <div class="contact-info">
+            <p>Email: pharma.hub.admin@gmail.com</p>
+            <p>Telegram: @BPharmaHub_Admin</p>
+            <p>WhatsApp: Available in Telegram group</p>
+        </div>
+        <p>Built with ❤️ by a B.Pharma student for the entire pharmacy community. Together, we learn better!</p>
     </footer>
-  </div>
 
-  <script>
-    // Mobile nav toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const nav = document.getElementById('nav');
-    let visible = false;
-    mobileToggle.addEventListener('click', () => {
-      visible = !visible;
-      nav.style.display = visible ? 'flex' : 'none';
-      mobileToggle.textContent = visible ? 'Close' : 'Menu';
-    });
-
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-          // close mobile nav when link clicked
-          if(window.innerWidth <= 880){
-            nav.style.display = 'none';
-            visible = false;
-            mobileToggle.textContent = 'Menu';
-          }
-        }
-      });
-    });
-
-    // Copy telegram link
-    document.getElementById('copyLink').addEventListener('click', async ()=>{
-      const link = 'https://t.me/BPharmaHub_Admin';
-      if(navigator.clipboard){
-        try{
-          await navigator.clipboard.writeText(link);
-          alert('Telegram group link copied to clipboard!');
-        }catch(e){
-          prompt('Copy this link:', link);
-        }
-      }else{
-        prompt('Copy this link:', link);
-      }
-    });
-
-    // small subtle reveal animation on load
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('section, header, footer').forEach((el,i) => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(8px)';
-        setTimeout(()=>{ el.style.transition='all 500ms cubic-bezier(.2,.9,.2,1)'; el.style.opacity=1; el.style.transform='none'; }, 80*i);
-      });
-    });
-  </script>
 </body>
 </html>
